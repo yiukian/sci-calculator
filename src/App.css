@@ -52,7 +52,7 @@
   justify-content: center;
 } */
 
-.Lcd-body {
+.LcdBody {
   align-items: center;
   justify-content: right;
   text-align: right;
@@ -63,12 +63,85 @@
   padding-top: 12px;
   padding-bottom: 12px;
   background: rgb(200, 200, 200);
+  width: 600px;
+}
+
+.LcdSpace {
+  align-items: center;
+  justify-content: center;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background: rgb(162, 162, 162);
+}
+
+.Test-Col1 {
+  background: rgb(8, 95, 217);
+}
+
+.FuncPadCol {
+  display: flex;
+  background: rgb(8, 217, 67);
+  align-items: center;
+  justify-content: center;
+}
+
+.FuncKeySpace {
+  display: flex;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 70px;
+}
+
+.NumPadCol {
+  display: flex;
+  background: rgb(217, 8, 193);
+  align-items: center;
+  justify-content: center;
+}
+
+.NumKeySpace {
+  display: flex;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 70px;
+}
+
+.OperatorPadCol {
+  display: flex;
+  background: rgb(255, 255, 0);
+  align-items: center;
+  justify-content: center;
+}
+
+.OperKeySpace {
+  display: flex;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 70px;
 }
 
 .Keypad {
   align-items: center;
   justify-content:center;
 }
+
 
 @keyframes App-logo-float {
   0% {
