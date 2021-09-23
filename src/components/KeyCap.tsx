@@ -1,6 +1,13 @@
+import { types } from '@babel/core';
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 //import { useState, useDispatch } from 'react-redux';
+
+export type KeyAction = (
+  (() => void) |
+  ((para1: string) => void) |
+  null
+)
 
 interface KeyCapProps {
   type: string;
@@ -8,6 +15,7 @@ interface KeyCapProps {
   name: string;
   caption: string;
   id: string;
+  action: KeyAction;
 }
 
 const initialState = {
@@ -36,5 +44,6 @@ KeyCap.defaultProps = {
   name: 'Test',
   caption: 'Test',
   id: 'Test',
+  action: (() => {}),
 }
 
