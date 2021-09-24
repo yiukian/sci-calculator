@@ -10,6 +10,7 @@ const initialState: calculatorObject = {
 
 
 const keysReducer = (state = initialState, action: Action) => {
+  console.log(`keysReducer  ${action.type}  ` + action)
   switch(action.type) {
     case ActionType.KEYPRESS_ANS:
       let result: string;
