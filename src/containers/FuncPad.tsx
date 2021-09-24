@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+//import PropTypes from 'prop-types'
 import { connect, ConnectedProps } from 'react-redux'
 import { Row, Col, Container } from 'react-bootstrap'
 import { KeyCap } from '../components/KeyCap'
@@ -63,9 +63,9 @@ export const FuncPad: React.FC<Props> = (props: Props) => {
   )
 }
 
-FuncPad.propTypes = {
+/* FuncPad.propTypes = {
   props: PropTypes
-}
+} */
 
 const mapStateToProps = (state: AppState) => ({
   
