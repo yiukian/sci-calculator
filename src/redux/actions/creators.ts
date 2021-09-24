@@ -1,11 +1,20 @@
 import { Dispatch } from 'redux';
 import { ActionType, Action } from './types';
 
-export const keyPressNum = (key: string) => {
+export const keyPressNum = (keyIn: string) => {
   return (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.KEYPRESS_NUM,
-      payload: key,
+      payload: keyIn,
+    })
+  }
+}
+
+export const keyPressOpr = (keyIn: string) => {
+  return (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionType.KEYPRESS_OPR,
+      payload: keyIn,
     })
   }
 }
@@ -18,7 +27,7 @@ export const keyPressAc = () => {
   }
 }
 
-export const keyPressAnsAction = () => {
+export const keyPressAns = () => {
   return (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.KEYPRESS_ANS,
@@ -26,11 +35,21 @@ export const keyPressAnsAction = () => {
   }
 }
 
-export const keyPressDelAction = () => {
+export const keyPressDel = () => {
   return (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.KEYPRESS_DEL,
     })
   }
 }
+
+export const keyPressFunc = (funcName: string) => {
+  return (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionType.KEYPRESS_FUNC,
+      payload: funcName,
+    })
+  }
+}
+
 
