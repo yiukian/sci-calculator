@@ -1,12 +1,22 @@
 import React from "react";
-import { connect, ConnectedProps } from "react-redux";
-import { AppState } from "../redux";
 import { keyPressOpr } from "../redux/actions";
 import { Row, Col, Container } from "react-bootstrap";
 import { KeyCap } from "../components/KeyCap";
-import { AnyAction, Dispatch } from "redux";
+import { RootState, AppDispatch } from "../redux";
+import { useDispatch } from "react-redux";
+
+const mapState = (state: RootState) => ({});
+const mapDispatch = {};
+
+type StateProps = ReturnType<typeof mapState>;
+type DispatchProps = typeof mapDispatch;
+
+type Props = StateProps & DispatchProps;
 
 export const OprPad: React.FC<Props> = (props: Props) => {
+  const dispatch: AppDispatch = useDispatch();
+  const onClickHandle = (keyIn: string) => dispatch(keyPressOpr(keyIn));
+
   return (
     <Col className="OperatorPadCol" line-height={1.5} xs={2.5}>
       <Container fluid>
@@ -17,7 +27,7 @@ export const OprPad: React.FC<Props> = (props: Props) => {
               type={"Button"}
               name={"/"}
               caption={"/"}
-              onClick={props.keyPressOpr}
+              onClick={onClickHandle}
             />
           </div>
           <div className="OperKeySpace">
@@ -26,7 +36,7 @@ export const OprPad: React.FC<Props> = (props: Props) => {
               type={"Button"}
               name={"AC"}
               caption={"AC"}
-              onClick={props.keyPressOpr}
+              onClick={onClickHandle}
             />
           </div>
         </Row>
@@ -37,7 +47,7 @@ export const OprPad: React.FC<Props> = (props: Props) => {
               type={"Button"}
               name={"*"}
               caption={"x"}
-              onClick={props.keyPressOpr}
+              onClick={onClickHandle}
             />
           </div>
           <div className="OperKeySpace">
@@ -46,7 +56,7 @@ export const OprPad: React.FC<Props> = (props: Props) => {
               type={"Button"}
               name={"DEL"}
               caption={"C"}
-              onClick={props.keyPressOpr}
+              onClick={onClickHandle}
             />
           </div>
         </Row>
@@ -57,7 +67,7 @@ export const OprPad: React.FC<Props> = (props: Props) => {
               type={"Button"}
               name={"-"}
               caption={"-"}
-              onClick={props.keyPressOpr}
+              onClick={onClickHandle}
             />
           </div>
           <div className="OperKeySpace">
@@ -66,7 +76,7 @@ export const OprPad: React.FC<Props> = (props: Props) => {
               type={"Button"}
               name={"M"}
               caption={"M"}
-              onClick={props.keyPressOpr}
+              onClick={onClickHandle}
             />
           </div>
         </Row>
@@ -77,7 +87,7 @@ export const OprPad: React.FC<Props> = (props: Props) => {
               type={"Button"}
               name={"+"}
               caption={"+"}
-              onClick={props.keyPressOpr}
+              onClick={onClickHandle}
             />
           </div>
           <div className="OperKeySpace">
@@ -86,7 +96,7 @@ export const OprPad: React.FC<Props> = (props: Props) => {
               type={"Button"}
               name={"="}
               caption={"="}
-              onClick={props.keyPressOpr}
+              onClick={onClickHandle}
             />
           </div>
         </Row>
@@ -95,18 +105,4 @@ export const OprPad: React.FC<Props> = (props: Props) => {
   );
 };
 
-const mapStateToProps = (state: AppState) => ({});
-
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => {
-  return {
-    keyPressOpr: (keyIn: string) => dispatch(keyPressOpr(keyIn)),
-  };
-};
-
-const connector = connect(mapStateToProps, mapDispatchToProps);
-
-type PropsFromRedux = ConnectedProps<typeof connector>;
-
-interface Props extends PropsFromRedux {}
-
-export default connector(OprPad);
+export default OprPad;
