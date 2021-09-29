@@ -19,7 +19,7 @@ export const KeyCap: React.FC<KeyCapProps> = (props) => {
 
   return (
     <Button
-      type="button"
+      type={props.type}
       id={props.id}
       name={props.name}
       size="lg"
