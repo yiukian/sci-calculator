@@ -3,6 +3,7 @@ export interface calculatorObject {
   operand2: string;
   operator: string;
   answer: string;
+  whatToShow: string;
 }
 
 export const calculate = (state: calculatorObject) => {
@@ -22,7 +23,7 @@ export const calculate = (state: calculatorObject) => {
     case "/":
       return (operand1 / operand2).toString();
     default:
-      return "0";
+      return state.operand1;
   }
 };
 
