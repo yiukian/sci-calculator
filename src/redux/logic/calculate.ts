@@ -52,6 +52,22 @@ export const getMathConstant = (constName: string): string => {
 };
 
 /***
+ * Do Division by one
+ * input operand as string
+ * return answer in string
+ */
+export const getDivBy1 = (operand: string, max_len: number = 15) => {
+  let answer: string;
+
+  answer = (1 / parseFloat(operand)).toString();
+
+  if (answer.length > max_len) {
+    answer = answer.substring(0, max_len - 1);
+  }
+  return answer;
+};
+
+/***
  * Do calculation (+ - * /)
  * input calculatorObject
  * return answer in string

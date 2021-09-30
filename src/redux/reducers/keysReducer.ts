@@ -4,6 +4,7 @@ import {
   calculate,
   calculateMathFunc,
   calculatorObject,
+  getDivBy1,
   getMathConstant,
 } from "../logic";
 
@@ -107,7 +108,21 @@ const keysReducer = (state = initialState, action: Action) => {
           }
           break;
         case "divBy1":
-          break;
+          if (whatToShow === "operand1") {
+            operand1 = getDivBy1(operand1);
+            result = operand1;
+          } else if (whatToShow === "operand2") {
+            operand2 = getDivBy1(operand2);
+            result = answer;
+          } else {
+            result = answer;
+          }
+          return {
+            ...state,
+            answer: result,
+            operand1: operand1,
+            operand2: operand2,
+          };
         case "POW":
           break;
         case "RPOW":
