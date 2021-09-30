@@ -15,9 +15,9 @@ const mathFuncCall: { [mathFunc: string]: Function } = {
 };
 
 const getMathConstCall: { [constName: string]: string } = {
-  PI: Math.PI.toFixed(15),
-  e: Math.E.toFixed(15),
-  phi: "1.618033988749894" /* Golden ratio */,
+  PI: Math.PI.toFixed(13),
+  e: Math.E.toFixed(13),
+  phi: "1.6180339887498" /* Golden ratio */,
 };
 
 /***
@@ -32,7 +32,7 @@ export const calculateMathFunc = (
   let fn = mathFuncCall[mathFunc];
 
   if (typeof fn === "function") {
-    return fn(operand).toFixed(15); // 15 dp
+    return fn(operand).toFixed(13); // 13 dp
   }
   return operand;
 };
@@ -56,30 +56,44 @@ export const getMathConstant = (constName: string): string => {
  * input calculatorObject
  * return answer in string
  */
-export const calculate = (state: calculatorObject) => {
+export const calculate = (state: calculatorObject, max_len: number = 15) => {
   let operand1: number;
   let operand2: number;
+  let answer: string;
 
   operand1 = parseFloat(state.operand1);
   operand2 = parseFloat(state.operand2);
 
   switch (state.operator) {
     case "+":
-      return (operand1 + operand2).toString();
+      answer = (operand1 + operand2).toString();
+      break;
     case "-":
-      return (operand1 - operand2).toString();
+      answer = (operand1 - operand2).toString();
+      break;
     case "*":
-      return (operand1 * operand2).toString();
+      answer = (operand1 * operand2).toString();
+      break;
     case "/":
-      return (operand1 / operand2).toString();
+      answer = (operand1 / operand2).toString();
+      break;
     default:
-      return state.operand1;
+      answer = state.operand1;
+      break;
   }
+  if (answer.length > max_len) {
+    answer = answer.substring(0, max_len - 1);
+  }
+  return answer;
 };
 
-// Limitation:  14 dp accuracy
-//              16 Digits calculator
-export const appendOperand = (operand: string, digit: string) => {
+// Limitation:  13 dp accuracy
+//              15 Digits calculator
+export const appendOperand = (
+  operand: string,
+  digit: string,
+  max_len: number = 15
+) => {
   let dotpos = operand.indexOf(".");
 
   if ((digit === "." && dotpos < 0) || !isNaN(Number(digit))) {
@@ -123,6 +137,9 @@ export const appendOperand = (operand: string, digit: string) => {
         operand = "0";
       }
     }
+  }
+  if (operand.length > max_len) {
+    operand = operand.substring(0, max_len - 1);
   }
   return operand;
 };
