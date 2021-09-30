@@ -71,10 +71,10 @@ export const FuncPad: React.FC<Props> = (props: Props) => {
           </div>
           <div className="FuncKeySpace">
             <KeyCap
-              id={"X*"}
+              id={"EXP"}
               type={"button"}
-              name={"X*"}
-              caption={"X*"}
+              name={"EXP"}
+              caption={"EXP"}
               onClick={onClickHandle}
             />
           </div>
@@ -82,10 +82,10 @@ export const FuncPad: React.FC<Props> = (props: Props) => {
         <Row>
           <div className="FuncKeySpace">
             <KeyCap
-              id={"EXP"}
+              id={"phi"}
               type={"button"}
-              name={"EXP"}
-              caption={"EXP"}
+              name={"phi"}
+              caption={"\u03C6"}
               onClick={onClickHandle}
             />
           </div>
@@ -111,28 +111,28 @@ export const FuncPad: React.FC<Props> = (props: Props) => {
         <Row>
           <div className="FuncKeySpace">
             <KeyCap
-              id={"FC1"}
+              id={"divBy1"}
               type={"button"}
-              name={"FC1"}
-              caption={""}
+              name={"divBy1"}
+              caption={"1/x"}
               onClick={onClickHandle}
             />
           </div>
           <div className="FuncKeySpace">
             <KeyCap
-              id={"FC2"}
+              id={"POW"}
               type={"button"}
-              name={"FC2"}
-              caption={""}
+              name={"POW"}
+              caption={"x\u02B8"}
               onClick={onClickHandle}
             />
           </div>
           <div className="FuncKeySpace">
             <KeyCap
-              id={"FC3"}
+              id={"RPOW"}
               type={"button"}
-              name={"FC3"}
-              caption={""}
+              name={"RPOW"}
+              caption={"\u02B8\u221Ax"}
               onClick={onClickHandle}
             />
           </div>

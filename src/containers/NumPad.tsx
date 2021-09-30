@@ -113,7 +113,7 @@ export const NumPad: React.FC<Props> = (props: Props) => {
               id={"-"}
               type={"button"}
               name={"+-"}
-              caption={"+/-"}
+              caption={"\u00B1"}
               onClick={onClickHandle}
             />
           </div>
