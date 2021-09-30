@@ -6,6 +6,56 @@ export interface calculatorObject {
   whatToShow: string;
 }
 
+const mathFuncCall: { [mathFunc: string]: Function } = {
+  SIN: (operand: string) => Math.sin((parseFloat(operand) * Math.PI) / 180),
+  COS: (operand: string) => Math.cos((parseFloat(operand) * Math.PI) / 180),
+  TAN: (operand: string) => Math.tan((parseFloat(operand) * Math.PI) / 180),
+  LOG: (operand: string) => Math.log10(parseFloat(operand)),
+  LN: (operand: string) => Math.log(parseFloat(operand)),
+};
+
+const getMathConstCall: { [constName: string]: string } = {
+  PI: Math.PI.toFixed(15),
+  e: Math.E.toFixed(15),
+  phi: "1.618033988749894" /* Golden ratio */,
+};
+
+/***
+ * Calculate mathematic functions
+ * return answer: string
+ * Note: if mathFunc is not found, return operand
+ */
+export const calculateMathFunc = (
+  mathFunc: string,
+  operand: string
+): string => {
+  let fn = mathFuncCall[mathFunc];
+
+  if (typeof fn === "function") {
+    return fn(operand).toFixed(15); // 15 dp
+  }
+  return operand;
+};
+
+/***
+ * Retrieve mathematic constant
+ * return answer in string
+ * Note: if constName is not found, return "0"
+ */
+export const getMathConstant = (constName: string): string => {
+  let result = getMathConstCall[constName];
+
+  if (result !== null && result !== "") {
+    return result;
+  }
+  return "0";
+};
+
+/***
+ * Do calculation (+ - * /)
+ * input calculatorObject
+ * return answer in string
+ */
 export const calculate = (state: calculatorObject) => {
   let operand1: number;
   let operand2: number;
