@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Row, Col } from "react-bootstrap";
 import { AppState, RootState } from "../../redux";
 
 const mapState = (state: RootState) => ({});
@@ -30,15 +29,7 @@ const LcdPanel: React.FC<Props> = (props: Props) => {
     lcdDisplay = operand1;
   }
 
-  return (
-    <Row>
-      <Col xs={1} />
-      <Col xs={10.5} className="LcdSpace">
-        <div className="LcdBody">{lcdDisplay}</div>
-      </Col>
-      <Col xs={1} />
-    </Row>
-  );
+  return <div className="LcdBody">{lcdDisplay}</div>;
 };
 
 export default LcdPanel;

@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-//import { useState, useDispatch } from 'react-redux';
 
 type KeyAction = (keyId: string) => void;
 
@@ -14,11 +13,9 @@ interface KeyCapProps {
 }
 
 export const KeyCap: React.FC<KeyCapProps> = (props) => {
-  //  const dispatch = useDispatch();
-  //  const [currentState, setState] = useState(initialState);
-
   return (
     <Button
+      className="btn-block" /* make the button stretch */
       type={props.type}
       id={props.id}
       name={props.name}
@@ -30,10 +27,6 @@ export const KeyCap: React.FC<KeyCapProps> = (props) => {
       {props.caption}
     </Button>
   );
-
-  /*   return (
-    <Button type={props.type} Style={'btn-primary'} onClick={() => props.action(props.capture)}>{props.capture}</Button>
-  ); */
 };
 
 KeyCap.defaultProps = {
