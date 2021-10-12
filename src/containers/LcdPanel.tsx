@@ -1,45 +1,44 @@
-import React from 'react'
-import { connect, ConnectedProps, useSelector } from 'react-redux'
-import { Row, Col } from 'react-bootstrap'
-import { State } from '../redux'
-import { AppState } from '../redux'
+import React from "react";
+import { useSelector } from "react-redux";
+import { Row, Col } from "react-bootstrap";
+import { AppState, RootState } from "../redux";
 
+const mapState = (state: RootState) => ({});
+const mapDispatch = {};
 
-interface Props extends PropsFromRedux {
+type StateProps = ReturnType<typeof mapState>;
+type DispatchProps = typeof mapDispatch;
 
-}
+type Props = StateProps & DispatchProps;
 
 export const LcdPanel: React.FC<Props> = (props: Props) => {
+  const operand1: string = useSelector(
+    (state: AppState) => state.keys.operand1
+  );
+  const operand2: string = useSelector(
+    (state: AppState) => state.keys.operand2
+  );
+  const whatToShow: string = useSelector(
+    (state: AppState) => state.keys.whatToShow
+  );
 
-  const operand1: string = useSelector((state: AppState) => state.keys.operand1)
+  var lcdDisplay: string;
 
+  if (whatToShow === "operand2") {
+    lcdDisplay = operand2;
+  } else {
+    lcdDisplay = operand1;
+  }
 
   return (
     <Row>
-    <Col xs={1} />
-    <Col xs={10.5} className="LcdSpace">
-      <div className="LcdBody">{operand1}</div>
-    </Col>
-    <Col xs={1} />
+      <Col xs={1} />
+      <Col xs={10.5} className="LcdSpace">
+        <div className="LcdBody">{lcdDisplay}</div>
+      </Col>
+      <Col xs={1} />
     </Row>
-  )
-}
-
-/* LcdPanel.propTypes = {
-  props: PropTypes
-} */
-
-const mapStateToProps = (state: State) => ({
-
-})
-
-const mapDispatchToProps = {
-
+  );
 };
 
-const connector = connect(mapStateToProps, mapDispatchToProps)
-
-type PropsFromRedux = ConnectedProps<typeof connector>
-
-
-export default connector(LcdPanel)
+export default LcdPanel;
