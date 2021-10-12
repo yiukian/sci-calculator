@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
-import { AppState, RootState } from "../redux";
+import { AppState, RootState } from "../../redux";
 
 const mapState = (state: RootState) => ({});
 const mapDispatch = {};
@@ -11,7 +11,7 @@ type DispatchProps = typeof mapDispatch;
 
 type Props = StateProps & DispatchProps;
 
-export const LcdPanel: React.FC<Props> = (props: Props) => {
+const LcdPanel: React.FC<Props> = (props: Props) => {
   const operand1: string = useSelector(
     (state: AppState) => state.keys.operand1
   );

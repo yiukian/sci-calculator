@@ -5,12 +5,7 @@ import "./App.css";
 import { APP_TITLE } from "./config.js";
 import { Row, Col } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import LcdPanel from "./containers/LcdPanel";
-import NumPad from "./containers/NumPad";
-//import { KeyCap } from './components/KeyCap';
-//import { keyPressAc, keyPressDel, keyPressNum, keyPressOpr, keyPressAns, keyPressFunc } from './redux/actions';
-import OprPad from "./containers/OprPad";
-import FuncPad from "./containers/FuncPad";
+import { LcdPanel, NumPad, OprPad, FuncPad } from "./containers";
 
 /**
  * Note: "<Col className="FuncPadCol" line-height={1.5} xs={4.5}>"
@@ -31,9 +26,9 @@ function App() {
       <LcdPanel />
       <Row>
         <Col className="Test-Col1" xs={1} />
-        <FuncPad></FuncPad>
-        <NumPad></NumPad>
-        <OprPad></OprPad>
+        <FuncPad />
+        <NumPad />
+        <OprPad />
         <Col className="Test-Col1" xs={1} />
       </Row>
     </Container>

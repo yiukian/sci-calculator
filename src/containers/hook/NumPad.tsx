@@ -1,8 +1,8 @@
 import React from "react";
-import { keyPressNum } from "../redux/actions";
+import { keyPressNum } from "../../redux/actions";
 import { Row, Col, Container } from "react-bootstrap";
-import { KeyCap } from "../components/KeyCap";
-import { RootState, AppDispatch } from "../redux";
+import { KeyCap } from "../../components/KeyCap";
+import { RootState, AppDispatch } from "../../redux";
 import { useDispatch } from "react-redux";
 
 const mapState = (state: RootState) => ({});
@@ -13,7 +13,7 @@ type DispatchProps = typeof mapDispatch;
 
 type Props = StateProps & DispatchProps;
 
-export const NumPad: React.FC<Props> = (props: Props) => {
+const NumPad: React.FC<Props> = (props: Props) => {
   const dispatch: AppDispatch = useDispatch();
   const onClickHandle = (keyIn: string) => dispatch(keyPressNum(keyIn));
 
@@ -110,7 +110,7 @@ export const NumPad: React.FC<Props> = (props: Props) => {
         <Row>
           <div className="NumKeySpace">
             <KeyCap
-              id={"-"}
+              id={"+-"}
               type={"button"}
               name={"+-"}
               caption={"\u00B1"}

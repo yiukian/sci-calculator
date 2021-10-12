@@ -1,9 +1,9 @@
 import React from "react";
 //import PropTypes from 'prop-types'
 import { Row, Col, Container } from "react-bootstrap";
-import { KeyCap } from "../components/KeyCap";
-import { keyPressFunc } from "../redux/actions";
-import { RootState, AppDispatch } from "../redux";
+import { KeyCap } from "../../components/KeyCap";
+import { keyPressFunc } from "../../redux/actions";
+import { RootState, AppDispatch } from "../../redux";
 import { useDispatch } from "react-redux";
 
 const mapState = (state: RootState) => ({});
@@ -14,7 +14,7 @@ type DispatchProps = typeof mapDispatch;
 
 type Props = StateProps & DispatchProps;
 
-export const FuncPad: React.FC<Props> = (props: Props) => {
+const FuncPad: React.FC<Props> = (props: Props) => {
   const dispatch: AppDispatch = useDispatch();
   const onClickHandle = (keyIn: string) => dispatch(keyPressFunc(keyIn));
 
