@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { Row, Col } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import { LcdPanel, NumPad, OprPad, FuncPad } from "./containers";
+import { CLcdPanel, HNumPad, HOprPad, HFuncPad } from "./containers";
 import { LogoTitle } from "./components";
 
 /**
@@ -21,19 +21,19 @@ function App() {
 
       <Row>
         <Col className="LcdSpace" xs={12}>
-          <LcdPanel />
+          <CLcdPanel />
         </Col>
       </Row>
 
       <Row>
         <Col className="FuncPadCol" xs={5}>
-          <FuncPad />
+          <HFuncPad />
         </Col>
         <Col className="NumPadCol" xs={4}>
-          <NumPad />
+          <HNumPad />
         </Col>
         <Col className="OperPadCol" xs={3}>
-          <OprPad />
+          <HOprPad />
         </Col>
       </Row>
     </Container>
